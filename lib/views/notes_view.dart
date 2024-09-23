@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_notes_app/widgets/custom_bottom_sheet.dart';
 import 'package:simple_notes_app/widgets/custom_body.dart';
 
 class NotesView extends StatelessWidget {
@@ -6,9 +7,18 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
-        body: CustomBody(),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                builder: (context) => const CustomBottomSheet());
+          },
+          child: const Icon(Icons.add),
+        ),
+        body: const CustomBody(),
       ),
     );
   }
