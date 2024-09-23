@@ -11,8 +11,8 @@ class AddNoteView extends StatelessWidget {
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: CustomAppBar(
-            title: 'Add Note',
-            icon: Icons.add,
+            title: 'Edit Note',
+            icon: Icons.check,
           ),
         ),
       ),

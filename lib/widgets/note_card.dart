@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_notes_app/views/add_note_view.dart';
+import 'package:simple_notes_app/views/edit_note_view.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({super.key});
