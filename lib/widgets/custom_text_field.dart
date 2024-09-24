@@ -9,15 +9,25 @@ class CustomTextField extends StatelessWidget {
       this.prefixIcon,
       this.suffixIcon,
       this.lableText,
-      this.hight});
+      this.hight,
+      this.onSaved});
   final String? hintText;
   final String? lableText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final double? hight;
+  final void Function(String?)? onSaved;
+
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white)),
@@ -33,9 +43,6 @@ class CustomTextField extends StatelessWidget {
       style: TextStyle(fontSize: 18, height: hight),
       onChanged: (value) {
         log('Current value: $value');
-      },
-      onSubmitted: (value) {
-        log('Submitted value: $value');
       },
     );
   }

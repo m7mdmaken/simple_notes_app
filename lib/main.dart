@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox('settings');
+  await Hive.openBox('notes_box');
   runApp(const SimpleNotesApp());
 }
 

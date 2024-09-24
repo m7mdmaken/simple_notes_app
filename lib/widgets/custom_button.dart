@@ -1,16 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class CustomContainerButton extends StatelessWidget {
-  const CustomContainerButton({super.key, required this.text});
+  const CustomContainerButton({super.key, required this.text, this.onTap});
   final String text;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        log('Button pressed');
-      },
+      onTap: onTap,
       child: Container(
         height: 40,
         width: double.infinity,

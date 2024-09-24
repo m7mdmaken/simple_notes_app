@@ -10,26 +10,64 @@ class CustomBottomSheet extends StatelessWidget {
     return const Center(
       child: Padding(
         padding: EdgeInsets.only(top: 48, left: 20, right: 20),
-        child: Column(
-          children: [
-            CustomTextField(
-              hintText: 'title',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              hight: 7,
-              hintText: 'note',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomContainerButton(
-              text: 'Add',
-            )
-          ],
-        ),
+        child: CustomFormSheet(),
+      ),
+    );
+  }
+}
+
+class CustomFormSheet extends StatefulWidget {
+  const CustomFormSheet({
+    super.key,
+  });
+
+  @override
+  State<CustomFormSheet> createState() => _CustomFormSheetState();
+}
+
+GlobalKey<FormState> formKey = GlobalKey<FormState>();
+AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+String? title, subTitle;
+
+class _CustomFormSheetState extends State<CustomFormSheet> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          CustomTextField(
+            onSaved: (value) {
+              title = value;
+            },
+            hintText: 'title',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomTextField(
+            onSaved: (value) {
+              subTitle = value;
+            },
+            hight: 7,
+            hintText: 'note',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomContainerButton(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+            text: 'Add',
+          )
+        ],
       ),
     );
   }
