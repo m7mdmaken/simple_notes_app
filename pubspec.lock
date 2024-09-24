@@ -166,6 +166,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.5"
+  cubit_generator:
+    dependency: "direct main"
+    description:
+      name: cubit_generator
+      sha256: "1420b3ea4e57209806f8db11ac989ec45672ae5f22b7e9c649be6e8befe13d9a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   cupertino_icons:
     dependency: "direct main"
     description:
