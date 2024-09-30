@@ -29,7 +29,10 @@ class CustomBottomSheet extends StatelessWidget {
             },
             builder: (context, state) {
               return ModalProgressHUD(
+                blur: 3,
+                color: Colors.transparent,
                 inAsyncCall: (state is AddNoteLoading),
+                //(state is AddNoteLoading),
                 child: ListView(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
