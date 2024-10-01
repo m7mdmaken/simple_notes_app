@@ -14,7 +14,11 @@ class CustomBottomSheet extends StatelessWidget {
       create: (context) => AddNoteCubit(),
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 48, left: 20, right: 20),
+          padding: EdgeInsets.only(
+              top: 48,
+              left: 20,
+              right: 20,
+              bottom: MediaQuery.of(context).viewInsets.bottom),
           child: BlocConsumer<AddNoteCubit, AddNoteState>(
             listener: (context, state) {
               if (state is AddNoteSuccess) {
